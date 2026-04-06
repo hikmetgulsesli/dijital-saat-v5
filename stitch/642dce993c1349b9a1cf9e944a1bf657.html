@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#ffa8a3",
+                    "on-secondary-container": "#ced1d2",
+                    "surface-container-lowest": "#000000",
+                    "on-secondary-fixed": "#3c4042",
+                    "on-surface": "#dfe4fe",
+                    "on-secondary-fixed-variant": "#595c5e",
+                    "inverse-surface": "#faf8ff",
+                    "error-dim": "#d7383b",
+                    "on-tertiary-fixed-variant": "#46556b",
+                    "primary-fixed-dim": "#1ad0eb",
+                    "on-tertiary": "#45546a",
+                    "primary": "#3adffa",
+                    "tertiary": "#d7e6ff",
+                    "surface-container": "#11192e",
+                    "tertiary-dim": "#bacae4",
+                    "tertiary-fixed-dim": "#bacae4",
+                    "surface-container-highest": "#1c253e",
+                    "on-primary-container": "#003d46",
+                    "tertiary-container": "#c8d8f3",
+                    "error": "#ff716c",
+                    "on-error": "#490006",
+                    "surface-tint": "#3adffa",
+                    "on-tertiary-container": "#3c4c61",
+                    "on-primary-fixed-variant": "#005561",
+                    "surface-container-low": "#0c1326",
+                    "secondary": "#e0e3e5",
+                    "outline": "#6f758b",
+                    "secondary-container": "#444749",
+                    "on-tertiary-fixed": "#29394e",
+                    "primary-container": "#00cbe6",
+                    "inverse-primary": "#006977",
+                    "secondary-fixed-dim": "#d2d5d7",
+                    "error-container": "#9f0519",
+                    "secondary-fixed": "#e0e3e5",
+                    "surface-variant": "#1c253e",
+                    "surface-container-high": "#171f36",
+                    "surface": "#070d1f",
+                    "primary-dim": "#1ad0eb",
+                    "on-surface-variant": "#a5aac2",
+                    "on-secondary": "#4f5254",
+                    "tertiary-fixed": "#c8d8f3",
+                    "on-background": "#dfe4fe",
+                    "on-primary": "#004b56",
+                    "outline-variant": "#41475b",
+                    "surface-dim": "#070d1f",
+                    "inverse-on-surface": "#4f5469",
+                    "surface-bright": "#222b47",
+                    "on-primary-fixed": "#00363e",
+                    "background": "#070d1f",
+                    "secondary-dim": "#d2d5d7",
+                    "primary-fixed": "#3adffa"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.75rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, .display-clock { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col overflow-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-950/60 backdrop-blur-xl flex justify-between items-center px-8 py-6 max-w-full">
+<div class="text-2xl font-bold tracking-tighter text-cyan-400 font-['Space_Grotesk']">NOCTURNAL</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-400 hover:text-cyan-300 transition-colors duration-300 font-['Space_Grotesk'] tracking-tight" href="#">Dijital</a>
+<a class="text-cyan-400 font-bold font-['Space_Grotesk'] tracking-tight" href="#">Analog</a>
+<a class="text-slate-400 hover:text-cyan-300 transition-colors duration-300 font-['Space_Grotesk'] tracking-tight" href="#">Ayarlar</a>
+</nav>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center relative p-6">
+<!-- Decorative Ambient Glow -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px]"></div>
+</div>
+<!-- Clock Container -->
+<div class="relative z-10 flex flex-col items-center">
+<!-- Analog Clock SVG -->
+<div class="relative w-72 h-72 md:w-96 md:h-96 flex items-center justify-center mb-12">
+<svg class="w-full h-full drop-shadow-[0_0_30px_rgba(58,223,250,0.15)]" viewbox="0 0 100 100">
+<!-- Face Background -->
+<circle cx="50" cy="50" fill="transparent" r="48" stroke="rgba(165,170,194,0.05)" stroke-width="0.5"></circle>
+<!-- Minute/Hour Markers (Subtle) -->
+<g class="text-outline-variant" stroke="currentColor">
+<line stroke-width="0.5" x1="50" x2="50" y1="5" y2="8"></line>
+<line stroke-width="0.5" x1="95" x2="92" y1="50" y2="50"></line>
+<line stroke-width="0.5" x1="50" x2="50" y1="95" y2="92"></line>
+<line stroke-width="0.5" x1="5" x2="8" y1="50" y2="50"></line>
+</g>
+<!-- Hour Hand (Secondary/Slate-100) -->
+<g transform="rotate(72 50 50)">
+<line stroke="#e0e3e5" stroke-linecap="round" stroke-width="2.5" x1="50" x2="50" y1="50" y2="28"></line>
+</g>
+<!-- Minute Hand (On Surface/Slate-100) -->
+<g transform="rotate(160 50 50)">
+<line stroke="#dfe4fe" stroke-linecap="round" stroke-width="1.5" x1="50" x2="50" y1="50" y2="18"></line>
+</g>
+<!-- Second Hand (Primary/Cyan-400) -->
+<g transform="rotate(315 50 50)">
+<line stroke="#3adffa" stroke-linecap="round" stroke-width="0.75" x1="50" x2="50" y1="58" y2="10"></line>
+<circle cx="50" cy="50" fill="#3adffa" r="1.5"></circle>
+</g>
+<!-- Center Pin -->
+<circle cx="50" cy="50" fill="#1c253e" r="2.5"></circle>
+</svg>
+<!-- Floating Label -->
+<div class="absolute -top-8 left-1/2 -translate-x-1/2">
+<span class="text-[10px] tracking-[0.4em] uppercase text-on-surface-variant font-medium opacity-50">GMT +03:00</span>
+</div>
+</div>
+<!-- Digital Sub-Clock -->
+<div class="text-center">
+<div class="display-clock text-4xl md:text-5xl font-light tracking-tighter text-on-surface mb-2">
+                    22:45<span class="text-primary text-xl ml-1">.14</span>
+</div>
+<div class="font-['Manrope'] text-xs uppercase tracking-[0.3em] text-on-surface-variant/60">
+                    24 Mayıs Cuma
+                </div>
+</div>
+</div>
+<!-- Functional Overlay Cards (Asymmetric Grid Element) -->
+<div class="absolute bottom-32 left-8 md:left-16 max-w-xs space-y-4 hidden md:block">
+<div class="bg-surface-container-low/40 backdrop-blur-md p-6 rounded-xl border-l-2 border-primary/20">
+<p class="text-xs text-on-surface-variant uppercase tracking-widest mb-1">Sıradaki Alarm</p>
+<h3 class="text-xl font-headline font-medium text-on-surface">07:30</h3>
+<p class="text-xs text-on-surface-variant">Sabah Rutini</p>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-8 pt-4 bg-slate-900/60 backdrop-blur-2xl rounded-t-3xl shadow-[0_-8px_40px_-12px_rgba(58,223,250,0.1)] z-50">
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-300 px-6 py-2 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="schedule">schedule</span>
+<span class="font-['Manrope'] text-[11px] uppercase tracking-widest mt-1">Dijital</span>
+</a>
+<a class="flex flex-col items-center justify-center text-cyan-400 bg-cyan-400/10 rounded-2xl px-6 py-2 scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="watch" style="font-variation-settings: 'FILL' 1;">watch</span>
+<span class="font-['Manrope'] text-[11px] uppercase tracking-widest mt-1 font-bold">Analog</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-300 px-6 py-2 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Manrope'] text-[11px] uppercase tracking-widest mt-1">Ayarlar</span>
+</a>
+</nav>
+<!-- Side Decoration (Editorial Flair) -->
+<div class="fixed right-8 top-1/2 -translate-y-1/2 flex flex-col items-center gap-12 pointer-events-none opacity-20 hidden lg:flex">
+<div class="h-24 w-px bg-gradient-to-b from-transparent via-primary to-transparent"></div>
+<div class="vertical-text rotate-90 text-[10px] tracking-[1em] uppercase text-primary whitespace-nowrap">CHRONOS PRECISION</div>
+<div class="h-24 w-px bg-gradient-to-b from-transparent via-primary to-transparent"></div>
+</div>
+</body></html>

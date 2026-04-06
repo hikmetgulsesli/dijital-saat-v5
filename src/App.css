@@ -1,0 +1,35 @@
+@import '../stitch/design-tokens.css';
+/* App-specific styles */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-6);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(58, 223, 250, 0.03) 0%,
+    transparent 70%
+  );
+}
+
+.time {
+  font-family: var(--font-headline), 'Space Grotesk', sans-serif;
+  font-size: var(--text-display-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-on-surface);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  text-shadow: var(--shadow-glow);
+  font-variant-numeric: tabular-nums;
+}
+
+.date {
+  font-family: var(--font-body), 'Manrope', sans-serif;
+  font-size: var(--text-title-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-on-surface-variant);
+  margin-top: var(--space-4);
+  text-transform: capitalize;
+}

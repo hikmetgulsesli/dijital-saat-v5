@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#ffa8a3",
+                    "on-secondary-container": "#ced1d2",
+                    "surface-container-lowest": "#000000",
+                    "on-secondary-fixed": "#3c4042",
+                    "on-surface": "#dfe4fe",
+                    "on-secondary-fixed-variant": "#595c5e",
+                    "inverse-surface": "#faf8ff",
+                    "error-dim": "#d7383b",
+                    "on-tertiary-fixed-variant": "#46556b",
+                    "primary-fixed-dim": "#1ad0eb",
+                    "on-tertiary": "#45546a",
+                    "primary": "#3adffa",
+                    "tertiary": "#d7e6ff",
+                    "surface-container": "#11192e",
+                    "tertiary-dim": "#bacae4",
+                    "tertiary-fixed-dim": "#bacae4",
+                    "surface-container-highest": "#1c253e",
+                    "on-primary-container": "#003d46",
+                    "tertiary-container": "#c8d8f3",
+                    "error": "#ff716c",
+                    "on-error": "#490006",
+                    "surface-tint": "#3adffa",
+                    "on-tertiary-container": "#3c4c61",
+                    "on-primary-fixed-variant": "#005561",
+                    "surface-container-low": "#0c1326",
+                    "secondary": "#e0e3e5",
+                    "outline": "#6f758b",
+                    "secondary-container": "#444749",
+                    "on-tertiary-fixed": "#29394e",
+                    "primary-container": "#00cbe6",
+                    "inverse-primary": "#006977",
+                    "secondary-fixed-dim": "#d2d5d7",
+                    "error-container": "#9f0519",
+                    "secondary-fixed": "#e0e3e5",
+                    "surface-variant": "#1c253e",
+                    "surface-container-high": "#171f36",
+                    "surface": "#070d1f",
+                    "primary-dim": "#1ad0eb",
+                    "on-surface-variant": "#a5aac2",
+                    "on-secondary": "#4f5254",
+                    "tertiary-fixed": "#c8d8f3",
+                    "on-background": "#dfe4fe",
+                    "on-primary": "#004b56",
+                    "outline-variant": "#41475b",
+                    "surface-dim": "#070d1f",
+                    "inverse-on-surface": "#4f5469",
+                    "surface-bright": "#222b47",
+                    "on-primary-fixed": "#00363e",
+                    "background": "#070d1f",
+                    "secondary-dim": "#d2d5d7",
+                    "primary-fixed": "#3adffa"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .text-glow {
+            text-shadow: 0 0 40px rgba(58, 223, 250, 0.3);
+        }
+        .bg-mesh {
+            background-image: radial-gradient(at 0% 0%, rgba(58, 223, 250, 0.05) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(0, 203, 230, 0.05) 0px, transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30 min-h-screen flex flex-col items-center justify-center overflow-hidden bg-mesh">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-950/60 backdrop-blur-xl flex justify-between items-center px-8 py-6 max-w-full">
+<div class="text-2xl font-bold tracking-tighter text-cyan-400 font-['Space_Grotesk']">NOCTURNAL</div>
+<div class="hidden md:flex gap-8 items-center font-['Space_Grotesk'] tracking-tight">
+<a class="text-cyan-400 font-bold hover:text-cyan-300 transition-colors duration-300" href="#">Dijital</a>
+<a class="text-slate-400 hover:text-cyan-300 transition-colors duration-300" href="#">Analog</a>
+<a class="text-slate-400 hover:text-cyan-300 transition-colors duration-300" href="#">Ayarlar</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-cyan-400 cursor-pointer hover:opacity-80 transition-all">notifications</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:opacity-80 transition-all">more_vert</span>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-7xl px-6 flex flex-col items-center justify-center relative">
+<!-- Abstract Decoration -->
+<div class="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+<div class="w-[600px] h-[600px] rounded-full border border-primary/20 scale-150"></div>
+<div class="absolute w-[400px] h-[400px] rounded-full border border-primary/10"></div>
+</div>
+<!-- Clock Section -->
+<section class="relative z-10 flex flex-col items-center text-center">
+<div class="mb-2">
+<span class="font-label text-primary/60 tracking-[0.4em] uppercase text-xs font-semibold">GÜNCEL ZAMAN</span>
+</div>
+<!-- Digital Clock Display -->
+<div class="flex flex-col items-center">
+<h1 class="font-headline text-[12vw] md:text-[8rem] font-bold leading-none tracking-tighter text-primary text-glow select-none">
+                    22:45<span class="text-on-surface-variant font-light text-[6vw] md:text-[4rem] ml-2 opacity-50">:18</span>
+</h1>
+<div class="mt-8 flex flex-col items-center">
+<p class="font-headline text-2xl md:text-3xl text-on-surface-variant font-medium tracking-tight">
+                        24 MAYIS 2024
+                    </p>
+<div class="mt-4 flex items-center gap-4 text-primary/80">
+<span class="w-12 h-[1px] bg-primary/30"></span>
+<p class="font-label text-sm uppercase tracking-widest font-light">Cuma</p>
+<span class="w-12 h-[1px] bg-primary/30"></span>
+</div>
+</div>
+</div>
+<!-- Focus Controls / Asymmetric Detail -->
+<div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-2xl">
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col items-center justify-center gap-3 group hover:bg-surface-container-high transition-colors duration-500">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">alarm</span>
+<div class="text-center">
+<span class="block font-headline text-lg font-medium text-on-surface">07:30</span>
+<span class="block font-label text-[10px] uppercase text-on-surface-variant">Sıradaki Alarm</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col items-center justify-center gap-3 group hover:bg-surface-container-high transition-colors duration-500">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">timer</span>
+<div class="text-center">
+<span class="block font-headline text-lg font-medium text-on-surface">25:00</span>
+<span class="block font-label text-[10px] uppercase text-on-surface-variant">Odaklanma</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col items-center justify-center gap-3 group hover:bg-surface-container-high transition-colors duration-500">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">schedule</span>
+<div class="text-center">
+<span class="block font-headline text-lg font-medium text-on-surface">19:45</span>
+<span class="block font-label text-[10px] uppercase text-on-surface-variant">Londra</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-8 pt-4 bg-slate-900/60 backdrop-blur-2xl rounded-t-3xl shadow-[0_-8px_40px_-12px_rgba(58,223,250,0.1)] z-50 md:hidden">
+<a class="flex flex-col items-center justify-center text-cyan-400 bg-cyan-400/10 rounded-2xl px-6 py-2 scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">schedule</span>
+<span class="font-['Manrope'] text-[11px] uppercase tracking-widest mt-1">Dijital</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-300 px-6 py-2 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">watch</span>
+<span class="font-['Manrope'] text-[11px] uppercase tracking-widest mt-1">Analog</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-300 px-6 py-2 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Manrope'] text-[11px] uppercase tracking-widest mt-1">Ayarlar</span>
+</a>
+</nav>
+</body></html>

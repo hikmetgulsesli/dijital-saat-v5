@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#1ad0eb",
+                    "on-secondary-fixed-variant": "#595c5e",
+                    "surface-container-low": "#0c1326",
+                    "surface-container-highest": "#1c253e",
+                    "primary": "#3adffa",
+                    "primary-container": "#00cbe6",
+                    "inverse-on-surface": "#4f5469",
+                    "tertiary-dim": "#bacae4",
+                    "on-secondary-container": "#ced1d2",
+                    "tertiary": "#d7e6ff",
+                    "surface-variant": "#1c253e",
+                    "surface-dim": "#070d1f",
+                    "secondary-fixed": "#e0e3e5",
+                    "error-container": "#9f0519",
+                    "outline": "#6f758b",
+                    "on-tertiary-container": "#3c4c61",
+                    "secondary-container": "#444749",
+                    "inverse-primary": "#006977",
+                    "on-background": "#dfe4fe",
+                    "inverse-surface": "#faf8ff",
+                    "surface-container-high": "#171f36",
+                    "secondary-dim": "#d2d5d7",
+                    "on-tertiary-fixed": "#29394e",
+                    "surface-tint": "#3adffa",
+                    "secondary-fixed-dim": "#d2d5d7",
+                    "primary-fixed": "#3adffa",
+                    "error": "#ff716c",
+                    "tertiary-container": "#c8d8f3",
+                    "on-surface-variant": "#a5aac2",
+                    "primary-dim": "#1ad0eb",
+                    "surface-container": "#11192e",
+                    "background": "#070d1f",
+                    "on-primary-container": "#003d46",
+                    "on-tertiary-fixed-variant": "#46556b",
+                    "surface-container-lowest": "#000000",
+                    "surface": "#070d1f",
+                    "error-dim": "#d7383b",
+                    "on-primary": "#004b56",
+                    "on-tertiary": "#45546a",
+                    "surface-bright": "#222b47",
+                    "tertiary-fixed-dim": "#bacae4",
+                    "on-surface": "#dfe4fe",
+                    "tertiary-fixed": "#c8d8f3",
+                    "on-secondary-fixed": "#3c4042",
+                    "on-error-container": "#ffa8a3",
+                    "secondary": "#e0e3e5",
+                    "on-primary-fixed": "#00363e",
+                    "outline-variant": "#41475b",
+                    "on-primary-fixed-variant": "#005561",
+                    "on-error": "#490006",
+                    "on-secondary": "#4f5254"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            background-color: #070d1f;
+            color: #dfe4fe;
+            font-family: 'Manrope', sans-serif;
+            overflow: hidden;
+        }
+        .clock-display {
+            font-variant-numeric: tabular-nums;
+        }
+    </style>
+</head>
+<body class="bg-surface selection:bg-primary/30 selection:text-primary">
+<!-- Top Navigation Header -->
+<nav class="fixed top-0 w-full bg-[#070d1f] flex justify-between items-center px-6 py-4 z-50 backdrop-blur-xl bg-slate-900/50">
+<div class="text-2xl font-bold tracking-tighter text-[#3adffa] font-['Space_Grotesk']">
+            Kronometre
+        </div>
+<div class="flex items-center gap-6">
+<button class="hover:text-[#3adffa] transition-colors duration-300 text-slate-400 scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="relative h-screen flex flex-col items-start justify-center px-8 md:px-24">
+<!-- Background Ambient Glow -->
+<div class="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<!-- Section Title -->
+<div class="mb-4 z-10">
+<span class="font-label text-primary uppercase tracking-[0.4em] text-xs font-bold">Şu Anki Zaman</span>
+</div>
+<!-- Hero Digital Clock -->
+<div class="z-10 flex flex-col items-start">
+<div class="clock-display font-headline font-bold text-[clamp(5rem,18vw,14rem)] leading-[0.85] tracking-tighter text-on-surface flex items-baseline gap-2">
+<span>14:42</span>
+<span class="text-[clamp(2rem,6vw,4rem)] text-primary-fixed-dim font-light ml-2">58</span>
+</div>
+<div class="mt-8 flex items-center gap-4">
+<div class="h-[1px] w-12 bg-primary/40"></div>
+<div class="font-body text-2xl md:text-4xl font-light text-on-surface-variant tracking-widest">
+                    24 MAYIS 2024
+                </div>
+</div>
+</div>
+<!-- Secondary Info Grid (Bento Style) -->
+<div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl z-10">
+<div class="p-6 rounded-xl bg-surface-container-low backdrop-blur-2xl border border-white/5 flex flex-col gap-2">
+<span class="text-xs font-bold text-primary/60 uppercase tracking-widest font-label">Zaman Dilimi</span>
+<span class="text-lg font-medium text-on-surface">GMT+3 İstanbul</span>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-low backdrop-blur-2xl border border-white/5 flex flex-col gap-2">
+<span class="text-xs font-bold text-primary/60 uppercase tracking-widest font-label">Hafta</span>
+<span class="text-lg font-medium text-on-surface">21. Hafta</span>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-low backdrop-blur-2xl border border-white/5 flex flex-col gap-2">
+<span class="text-xs font-bold text-primary/60 uppercase tracking-widest font-label">Gün</span>
+<span class="text-lg font-medium text-on-surface">Cuma</span>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#0c1326]/80 backdrop-blur-2xl rounded-t-3xl border-t border-white/5 shadow-[0_-8px_40px_-12px_rgba(58,223,250,0.15)]">
+<!-- Active Tab: Dijital -->
+<a class="flex flex-col items-center justify-center bg-[#3adffa]/10 text-[#3adffa] rounded-xl px-6 py-2 transition-all Active: scale-90 duration-150 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="schedule" style="font-variation-settings: 'FILL' 1;">schedule</span>
+<span class="font-['Manrope'] text-xs uppercase tracking-widest">Dijital</span>
+</a>
+<!-- Inactive Tab: Analog -->
+<a class="flex flex-col items-center justify-center text-slate-500 py-2 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="watch">watch</span>
+<span class="font-['Manrope'] text-xs uppercase tracking-widest">Analog</span>
+</a>
+<!-- Inactive Tab: Ayarlar -->
+<a class="flex flex-col items-center justify-center text-slate-500 py-2 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="settings">settings</span>
+<span class="font-['Manrope'] text-xs uppercase tracking-widest">Ayarlar</span>
+</a>
+</nav>
+<!-- Visual Texture Element -->
+<div class="fixed inset-0 pointer-events-none opacity-20 z-0">
+<div class="absolute inset-0 bg-[radial-gradient(#171f36_1px,transparent_1px)] [background-size:40px_40px]"></div>
+</div>
+</body></html>

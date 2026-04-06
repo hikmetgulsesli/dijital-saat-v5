@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kronometre - Analog Saat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#1ad0eb",
+                    "on-secondary-fixed-variant": "#595c5e",
+                    "surface-container-low": "#0c1326",
+                    "surface-container-highest": "#1c253e",
+                    "primary": "#3adffa",
+                    "primary-container": "#00cbe6",
+                    "inverse-on-surface": "#4f5469",
+                    "tertiary-dim": "#bacae4",
+                    "on-secondary-container": "#ced1d2",
+                    "tertiary": "#d7e6ff",
+                    "surface-variant": "#1c253e",
+                    "surface-dim": "#070d1f",
+                    "secondary-fixed": "#e0e3e5",
+                    "error-container": "#9f0519",
+                    "outline": "#6f758b",
+                    "on-tertiary-container": "#3c4c61",
+                    "secondary-container": "#444749",
+                    "inverse-primary": "#006977",
+                    "on-background": "#dfe4fe",
+                    "inverse-surface": "#faf8ff",
+                    "surface-container-high": "#171f36",
+                    "secondary-dim": "#d2d5d7",
+                    "on-tertiary-fixed": "#29394e",
+                    "surface-tint": "#3adffa",
+                    "secondary-fixed-dim": "#d2d5d7",
+                    "primary-fixed": "#3adffa",
+                    "error": "#ff716c",
+                    "tertiary-container": "#c8d8f3",
+                    "on-surface-variant": "#a5aac2",
+                    "primary-dim": "#1ad0eb",
+                    "surface-container": "#11192e",
+                    "background": "#070d1f",
+                    "on-primary-container": "#003d46",
+                    "on-tertiary-fixed-variant": "#46556b",
+                    "surface-container-lowest": "#000000",
+                    "surface": "#070d1f",
+                    "error-dim": "#d7383b",
+                    "on-primary": "#004b56",
+                    "on-tertiary": "#45546a",
+                    "surface-bright": "#222b47",
+                    "tertiary-fixed-dim": "#bacae4",
+                    "on-surface": "#dfe4fe",
+                    "tertiary-fixed": "#c8d8f3",
+                    "on-secondary-fixed": "#3c4042",
+                    "on-error-container": "#ffa8a3",
+                    "secondary": "#e0e3e5",
+                    "on-primary-fixed": "#00363e",
+                    "outline-variant": "#41475b",
+                    "on-primary-fixed-variant": "#005561",
+                    "on-error": "#490006",
+                    "on-secondary": "#4f5254"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #070d1f;
+            color: #dfe4fe;
+            font-family: 'Manrope', sans-serif;
+            overflow: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .clock-shadow {
+            box-shadow: 0 0 80px -20px rgba(58, 223, 250, 0.15);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#070d1f] flex justify-between items-center px-6 py-4 z-50 backdrop-blur-xl bg-slate-900/50">
+<div class="text-2xl font-bold tracking-tighter text-[#3adffa] font-['Space_Grotesk']">
+            Kronometre
+        </div>
+<div class="flex items-center gap-4">
+<button class="text-slate-400 hover:text-[#3adffa] transition-colors duration-300 scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Main Content: Analog Clock Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center p-6 mt-16 mb-24">
+<!-- Asymmetric Decorative Element -->
+<div class="absolute top-1/4 left-10 opacity-10 pointer-events-none hidden md:block">
+<h2 class="font-headline text-[12rem] font-extrabold tracking-tighter text-primary select-none">12</h2>
+</div>
+<!-- Analog Clock Sculpture -->
+<div class="relative w-72 h-72 md:w-96 md:h-96 flex items-center justify-center clock-shadow rounded-full bg-surface-container-low/40 backdrop-blur-sm border border-white/5">
+<!-- Decorative Inner Rings -->
+<div class="absolute inset-4 rounded-full border border-primary/10"></div>
+<div class="absolute inset-12 rounded-full border border-primary/5"></div>
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<!-- Hour Markers -->
+<g class="text-on-surface-variant/30">
+<line stroke="currentColor" stroke-width="0.5" transform="rotate(0 50 50)" x1="92" x2="98" y1="50" y2="50"></line>
+<line stroke="currentColor" stroke-width="0.5" transform="rotate(30 50 50)" x1="92" x2="98" y1="50" y2="50"></line>
+<line stroke="currentColor" stroke-width="0.5" transform="rotate(60 50 50)" x1="92" x2="98" y1="50" y2="50"></line>
+<line stroke="currentColor" stroke-width="0.5" transform="rotate(90 50 50)" x1="92" x2="98" y1="50" y2="50"></line>
+<line stroke="currentColor" stroke-width="0.5" transform="rotate(120 50 50)" x1="92" x2="98" y1="50" y2="50"></line>
+<line stroke="currentColor" stroke-width="0.5" transform="rotate(150 50 50)" x1="92" x2="98" y1="50" y2="50"></line>
+<line stroke="currentColor" stroke-width="0.5" transform="rotate(180 50 50)" x1="92" x2="98" y1="50" y2="50"></line>
+<line stroke="currentColor" stroke-width="0.5" transform="rotate(210 50 50)" x1="92" x2="98" y1="50" y2="50"></line>
+<line stroke="currentColor" stroke-width="0.5" transform="rotate(240 50 50)" x1="92" x2="98" y1="50" y2="50"></line>
+<line stroke="currentColor" stroke-width="0.5" transform="rotate(270 50 50)" x1="92" x2="98" y1="50" y2="50"></line>
+<line stroke="currentColor" stroke-width="0.5" transform="rotate(300 50 50)" x1="92" x2="98" y1="50" y2="50"></line>
+<line stroke="currentColor" stroke-width="0.5" transform="rotate(330 50 50)" x1="92" x2="98" y1="50" y2="50"></line>
+</g>
+<!-- Hour Hand (Secondary) -->
+<line stroke="#e0e3e5" stroke-linecap="round" stroke-width="2.5" transform="rotate(240 50 50)" x1="50" x2="70" y1="50" y2="50"></line>
+<!-- Minute Hand (On Surface) -->
+<line stroke="#dfe4fe" stroke-linecap="round" stroke-width="1.5" transform="rotate(10 50 50)" x1="50" x2="85" y1="50" y2="50"></line>
+<!-- Second Hand (Primary) -->
+<line stroke="#3adffa" stroke-linecap="round" stroke-width="0.5" transform="rotate(185 50 50)" x1="45" x2="90" y1="50" y2="50"></line>
+<!-- Center Anchor Point -->
+<circle cx="50" cy="50" fill="#1c253e" r="2.5" stroke="#3adffa" stroke-width="0.5"></circle>
+</svg>
+</div>
+<!-- Time & Date Text Stack -->
+<div class="mt-12 text-center space-y-2">
+<div class="font-headline text-5xl md:text-7xl font-bold tracking-tight text-on-surface flex items-baseline justify-center">
+<span>14:02</span>
+<span class="text-xl md:text-2xl font-label text-primary ml-2 font-light">37</span>
+</div>
+<div class="font-label text-on-surface-variant tracking-[0.2em] text-sm uppercase">
+                24 Mayıs Cuma
+            </div>
+</div>
+<!-- Secondary Information Cards (Bento Style) -->
+<div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-2xl px-4">
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center justify-center space-y-1">
+<span class="material-symbols-outlined text-primary/60 text-lg" data-icon="alarm">alarm</span>
+<span class="text-on-surface-variant text-[10px] uppercase tracking-wider">Sonraki Alarm</span>
+<span class="font-headline font-bold text-on-surface">07:30</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center justify-center space-y-1 border-t border-white/5">
+<span class="material-symbols-outlined text-primary/60 text-lg" data-icon="public">public</span>
+<span class="text-on-surface-variant text-[10px] uppercase tracking-wider">GMT</span>
+<span class="font-headline font-bold text-on-surface">+3:00</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center justify-center space-y-1">
+<span class="material-symbols-outlined text-primary/60 text-lg" data-icon="light_mode">light_mode</span>
+<span class="text-on-surface-variant text-[10px] uppercase tracking-wider">Gündüz</span>
+<span class="font-headline font-bold text-on-surface">İstanbul</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center justify-center space-y-1">
+<span class="material-symbols-outlined text-primary/60 text-lg" data-icon="battery_full">battery_full</span>
+<span class="text-on-surface-variant text-[10px] uppercase tracking-wider">Batarya</span>
+<span class="font-headline font-bold text-on-surface">%84</span>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#0c1326]/80 backdrop-blur-2xl shadow-[0_-8px_40px_-12px_rgba(58,223,250,0.15)] rounded-t-3xl border-t border-white/5">
+<!-- Dijital -->
+<a class="flex flex-col items-center justify-center text-slate-500 py-2 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="schedule">schedule</span>
+<span class="font-['Manrope'] text-xs uppercase tracking-widest mt-1">Dijital</span>
+</a>
+<!-- Analog (Active) -->
+<a class="flex flex-col items-center justify-center bg-[#3adffa]/10 text-[#3adffa] rounded-xl px-6 py-2 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="watch" style="font-variation-settings: 'FILL' 1;">watch</span>
+<span class="font-['Manrope'] text-xs uppercase tracking-widest mt-1 font-bold">Analog</span>
+</a>
+<!-- Ayarlar -->
+<a class="flex flex-col items-center justify-center text-slate-500 py-2 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Manrope'] text-xs uppercase tracking-widest mt-1">Ayarlar</span>
+</a>
+</nav>
+<!-- Visual Polish: Grain Overlay -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] contrast-150 brightness-150" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBlDLI2N8jl8l2zDYiQojWXyKHhXO-1_QjcHd6N1eWIABuAwLPlYDOEmuJLS6Z8h_SjIOZyLA5LTFxrhasKUyOYCH_Ootdv39kZ7FdoDECgI7_qsIddPtE_dOyrhqRu3TmlBink99Yt51kXqVEEsxd3T-OFIFxBhtMrVYDa_oegFVGe_EJDUtMHnhsOjTVVroogikp2tZVIOYal2n0FKexoX_dwgAbUz-SfCNAbRz4y14l5ta6Nw9g-2hyGBPJxrFK9M3G5zlohQKz6');"></div>
+</body></html>
