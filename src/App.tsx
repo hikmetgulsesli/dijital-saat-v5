@@ -5,8 +5,15 @@ type ViewMode = 'digital' | 'analog' | 'settings'
 
 function App() {
   const [time, setTime] = useState(new Date())
-  const [viewMode, setViewMode] = useState<ViewMode>('digital')
+  const [viewMode, setViewMode] = useState<ViewMode>(() => {
+    const saved = localStorage.getItem('clock-view-mode');
+    return (saved === 'digital' || saved === 'analog' || saved === 'settings') ? saved as ViewMode : 'digital';
+  })
   const [settingsOpen, setSettingsOpen] = useState(false)
+
+  useEffect(() => {
+    localStorage.setItem('clock-view-mode', viewMode);
+  }, [viewMode]);
 
   useEffect(() => {
     const timer = setInterval(() => {
