@@ -1,35 +1,486 @@
 @import '../stitch/design-tokens.css';
 /* App-specific styles */
-.container {
+
+/* Layout */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background);
+  position: relative;
+}
+
+/* Top Navigation */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(7, 13, 31, 0.6);
+  backdrop-filter: blur(24px);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: var(--font-headline), 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+}
+
+.nav-links {
+  display: none;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+  }
+}
+
+.nav-link {
+  font-family: var(--font-headline), 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-on-surface-variant);
+  transition: color var(--transition-normal);
+}
+
+.nav-link:hover {
+  color: var(--color-primary-dim);
+}
+
+.nav-link.active {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-button {
+  padding: 0.5rem;
+  border-radius: var(--radius-lg);
+  color: var(--color-on-surface-variant);
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-button:hover {
+  color: var(--color-primary);
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: var(--space-6);
-  background: radial-gradient(
-    ellipse at center,
-    rgba(58, 223, 250, 0.03) 0%,
-    transparent 70%
-  );
+  padding: 6rem 1.5rem 8rem;
+  position: relative;
 }
 
-.time {
+/* Ambient Glow Decoration */
+.ambient-glow {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-circle {
+  width: 500px;
+  height: 500px;
+  background: rgba(58, 223, 250, 0.05);
+  border-radius: 50%;
+  filter: blur(120px);
+}
+
+/* Clock Section */
+.clock-section {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.clock-label {
+  font-family: var(--font-label), 'Manrope', sans-serif;
+  font-size: var(--text-label-md);
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  opacity: 0.6;
+  margin-bottom: 0.5rem;
+}
+
+/* Digital Clock */
+.digital-clock {
   font-family: var(--font-headline), 'Space Grotesk', sans-serif;
-  font-size: var(--text-display-lg);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-on-surface);
+  font-size: clamp(3rem, 12vw, 8rem);
+  font-weight: 700;
   line-height: var(--leading-tight);
   letter-spacing: -0.02em;
-  text-shadow: var(--shadow-glow);
+  color: var(--color-primary);
+  text-shadow: 0 0 40px rgba(58, 223, 250, 0.3);
   font-variant-numeric: tabular-nums;
 }
 
-.date {
-  font-family: var(--font-body), 'Manrope', sans-serif;
-  font-size: var(--text-title-md);
-  font-weight: var(--font-weight-medium);
+.digital-seconds {
+  font-size: 0.5em;
+  font-weight: 300;
   color: var(--color-on-surface-variant);
-  margin-top: var(--space-4);
-  text-transform: capitalize;
+  opacity: 0.5;
+  margin-left: 0.25rem;
+}
+
+/* Date Display */
+.date-display {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.date-text {
+  font-family: var(--font-headline), 'Space Grotesk', sans-serif;
+  font-size: var(--text-headline-md);
+  font-weight: 500;
+  color: var(--color-on-surface-variant);
+  letter-spacing: -0.01em;
+}
+
+.weekday-text {
+  font-family: var(--font-label), 'Manrope', sans-serif;
+  font-size: var(--text-label-md);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--color-primary);
+  opacity: 0.8;
+}
+
+.date-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.divider-line {
+  width: 3rem;
+  height: 1px;
+  background: var(--color-primary);
+  opacity: 0.3;
+}
+
+/* Info Cards Grid */
+.info-cards {
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 42rem;
+}
+
+@media (min-width: 768px) {
+  .info-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.info-card {
+  background: var(--color-surface-container-low);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: background-color var(--transition-slow);
+}
+
+.info-card:hover {
+  background: var(--color-surface-container-high);
+}
+
+.info-card-icon {
+  color: var(--color-primary);
+  transition: transform var(--transition-normal);
+}
+
+.info-card:hover .info-card-icon {
+  transform: scale(1.1);
+}
+
+.info-card-value {
+  font-family: var(--font-headline), 'Space Grotesk', sans-serif;
+  font-size: var(--text-headline-sm);
+  font-weight: 500;
+  color: var(--color-on-surface);
+}
+
+.info-card-label {
+  font-family: var(--font-label), 'Manrope', sans-serif;
+  font-size: var(--text-label-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-on-surface-variant);
+}
+
+/* Analog Clock */
+.analog-clock-container {
+  position: relative;
+  width: 18rem;
+  height: 18rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .analog-clock-container {
+    width: 24rem;
+    height: 24rem;
+  }
+}
+
+.analog-clock-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 30px rgba(58, 223, 250, 0.15));
+}
+
+.analog-clock-label {
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-label), 'Manrope', sans-serif;
+  font-size: var(--text-label-sm);
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--color-on-surface-variant);
+  opacity: 0.5;
+}
+
+/* Digital Sub-Clock */
+.sub-clock {
+  text-align: center;
+}
+
+.sub-clock-time {
+  font-family: var(--font-headline), 'Space Grotesk', sans-serif;
+  font-size: var(--text-display-sm);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--color-on-surface);
+}
+
+.sub-clock-seconds {
+  font-size: 0.6em;
+  color: var(--color-primary);
+  margin-left: 0.25rem;
+}
+
+.sub-clock-date {
+  font-family: var(--font-body), 'Manrope', sans-serif;
+  font-size: var(--text-label-md);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--color-on-surface-variant);
+  opacity: 0.6;
+  margin-top: 0.5rem;
+}
+
+/* Settings Panel */
+.settings-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 28rem;
+  height: 100vh;
+  background: var(--color-surface-container);
+  z-index: 100;
+  padding: 2rem;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform var(--transition-slow);
+}
+
+.settings-panel.open {
+  transform: translateX(0);
+}
+
+.settings-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+}
+
+.settings-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.settings-title {
+  font-family: var(--font-headline), 'Space Grotesk', sans-serif;
+  font-size: var(--text-headline-lg);
+  font-weight: 700;
+  color: var(--color-on-surface);
+}
+
+.settings-close {
+  padding: 0.5rem;
+  border-radius: var(--radius-lg);
+  color: var(--color-on-surface-variant);
+  transition: color var(--transition-normal);
+}
+
+.settings-close:hover {
+  color: var(--color-primary);
+}
+
+.settings-content {
+  color: var(--color-on-surface-variant);
+}
+
+.settings-content p {
+  margin-bottom: 2rem;
+}
+
+.settings-section {
+  background: var(--color-surface-container-low);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.settings-section h3 {
+  font-family: var(--font-headline), 'Space Grotesk', sans-serif;
+  font-size: var(--text-title-lg);
+  font-weight: 600;
+  color: var(--color-on-surface);
+  margin-bottom: 1rem;
+}
+
+.settings-options {
+  display: flex;
+  gap: 0.5rem;
+  background: var(--color-surface-container-lowest);
+  padding: 0.25rem;
+  border-radius: var(--radius-full);
+  width: fit-content;
+}
+
+.settings-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-label), 'Manrope', sans-serif;
+  font-size: var(--text-label-lg);
+  font-weight: 600;
+  color: var(--color-on-surface-variant);
+  transition: all var(--transition-normal);
+}
+
+.settings-option:hover {
+  color: var(--color-on-surface);
+}
+
+.settings-option.active {
+  background: rgba(58, 223, 250, 0.1);
+  color: var(--color-primary);
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 1rem 2rem;
+  background: rgba(7, 13, 31, 0.6);
+  backdrop-filter: blur(24px);
+  border-radius: 1.5rem 1.5rem 0 0;
+  box-shadow: 0 -8px 40px -12px rgba(58, 223, 250, 0.1);
+  z-index: 50;
+}
+
+@media (min-width: 768px) {
+  .bottom-nav {
+    display: none;
+  }
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.5rem;
+  border-radius: 1rem;
+  color: var(--color-on-surface-variant);
+  transition: all var(--transition-normal);
+}
+
+.bottom-nav-item:hover {
+  color: var(--color-on-surface);
+}
+
+.bottom-nav-item.active {
+  color: var(--color-primary);
+  background: rgba(58, 223, 250, 0.1);
+  transform: scale(0.9);
+}
+
+.bottom-nav-label {
+  font-family: var(--font-body), 'Manrope', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.25rem;
 }
